@@ -1,0 +1,18 @@
+on: 
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    if: ${{ github.repository == 'dvargas92495/roamjs-unlink-finder' }}
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: RoamJS Publish
+        uses: dvargas92495/roamjs-publish@0.2.0
+        with:
+          token: ${{ secrets.ROAMJS_DEVELOPER_TOKEN }}
+          source: unlink-finder
+          path: unlink-finder
+          release_token: ${{ secrets.ROAMJS_RELEASE_TOKEN }}
