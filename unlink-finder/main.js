@@ -238,12 +238,7 @@ function unlinkFinder() {
 function spanWrapper(node, pages, aliases) {
     try {
         for (const [key, value] of aliases.entries()) {
-            aliasKey = key.toLowerCase();
-            if (aliasCaseSensitive) {
-                aliasKey = key;
-            };
-            if ((aliasCaseSensitive && node.textContent.includes(key)) ||
-                (!aliasCaseSensitive && node.textContent.toLowerCase().includes(key.toLowerCase()))) {
+            if (new RegExp(`(^|[^-])\\b${key}\\b($|[^-])`, aliasCaseSensitive ? '' : 'i').test(node.textContent)) {
                 // iterate over the childNodes and do stuff on childNodes that 
                 // don't have the data-link-title attribute
                 start = node.textContent.toLowerCase().indexOf(key.toLowerCase());

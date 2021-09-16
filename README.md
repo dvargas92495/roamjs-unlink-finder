@@ -1,2 +1,3 @@
-# roam-plugins
-Plugins I have built for my Roam Research. Use at your own risk. 
+# RoamJS Unlink Finder
+
+Helps detects unlinked references in your Roam pages!
