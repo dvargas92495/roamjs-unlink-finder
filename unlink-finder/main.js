@@ -47,7 +47,8 @@ function getAllAliases() {
     aliases:
       getConfigFromPage(p.title)
         ?.Aliases?.split(",")
-        ?.map((a) => a.trim()) || [],
+        ?.map((a) => a.trim())
+        ?.filter((a) => !!a) || [],
   }));
 
   for (i = 0; i < uidWithAliases.length; i++) {
