@@ -579,7 +579,7 @@ function linkUsingReference(el) {
   blockUid = el.parentNode.parentNode.id.slice(-9);
   let currentText = window.roamAlphaAPI.q(
     `[:find (pull ?e [:block/string]) :where [?e :block/uid "${blockUid}"]]`
-  )[0][0].string;
+  )?.[0]?.[0]?.string || '';
   let futureText = replaceMatchedWord(
     locationOfMatchedWord,
     currentText,
