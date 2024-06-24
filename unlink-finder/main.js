@@ -46,6 +46,7 @@ function getAllAliases() {
     uid: p.uid,
     aliases:
       getConfigFromPage(p.title)
+        ?.Aliases.replace(/(^\s*,)|(,\s*$)/g, '')
         ?.Aliases?.split(",")
         ?.map((a) => a.trim())
         ?.filter((a) => !!a) || [],
